@@ -1,0 +1,287 @@
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --svg-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+    pointer-events: none;
+}
+
+header img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.content {
+    width: 100%;
+    max-width: 600px;
+    padding: 3em 1.5em;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to bottom, transparent, #000);
+    pointer-events: none;
+}
+
+.skip-link {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.skip-link:hover {
+    opacity: 1;
+}
+
+.sentence {
+    font-size: 3rem;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.3em;
+    opacity: 0;
+}
+
+.sentence.active {
+    opacity: 1;
+}
+
+.sentence.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+.word {
+    opacity: 0;
+    display: inline-block;
+    animation: fadeIn 0.5s forwards;
+}
+
+.word.emphasis {
+    font-weight: 700;
+    text-shadow: 0 0 20px currentColor;
+}
+
+.final-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 60vh;
+    width: 100%;
+    padding: 0;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+.final-screen.active {
+    display: flex;
+}
+
+.final-text {
+    font-size: clamp(32px, 5vw, 64px);
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.6;
+}
+
+body:has(.final-screen.active) header {
+    display: none;
+}
+
+.final-logo {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+   
+
+.final-logo svg {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+.tagline {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    margin: 20px 0;
+}
+
+.cta-button {
+    background: #fff;
+    color: #000;
+    padding: 1em 2.5em;
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.3);
+}
+
+.skip-link.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .sentence {
+        font-size: 2rem;
+    }
+    
+    .final-logo svg {
+        width: 100vw;
+        max-width: 400px;
+    }
+}
+.waitlist-heading {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.waitlist-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 500px;
+    padding: 0 2rem;
+}
+
+.waitlist-form input[type="email"] {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    font-size: 1.125rem;
+    border-radius: 50px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.waitlist-form input[type="email"]:focus {
+    border-color: #888;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.waitlist-form input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.waitlist-form button {
+    background: #fff;
+    color: #000;
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.waitlist-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.3);
+}
+
+footer {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    height: 40vh;
+    width: 100%;
+}
+
+body:has(.final-screen.active) footer {
+    display: flex;
+}
+body:has(.final-screen.active) main {
+    display: none;
+}
