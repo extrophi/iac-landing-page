@@ -42,16 +42,16 @@ header::after {
     height: calc(100% + 15vh);
     background: linear-gradient(to bottom, 
         transparent 0%,
-        rgba(10, 10, 20, 0.2) 15%,
-        rgba(15, 15, 25, 0.35) 20%,
-        rgba(20, 20, 30, 0.55) 40%,
-        rgba(15, 15, 20, 0.75) 60%,
-        rgba(10, 10, 15, 0.9) 75%,
-        #000 100%
+        rgba(10, 10, 20, 0.1) 20%,
+        rgba(15, 15, 25, 0.2) 35%,
+        rgba(20, 20, 30, 0.5) 50%,
+        rgba(10, 10, 15, 0.85) 65%,
+        #000 80%
     );
     pointer-events: none;
     z-index: 2;
 }
+
 header img {
     max-width: 1400px;
     width: 100%;
