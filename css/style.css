@@ -39,7 +39,7 @@ header::after {
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% + 15vh);
+    height: calc(100% + 10vh);
     background: linear-gradient(to bottom, 
         transparent 0%,
         rgba(10, 10, 20, 0.1) 20%,
