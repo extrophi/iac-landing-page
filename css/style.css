@@ -33,13 +33,31 @@ header {
     overflow: visible;
 }
 
-
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 15vh);
+    background: linear-gradient(to bottom, 
+        transparent 0%,
+        rgba(10, 10, 20, 0.2) 15%,
+        rgba(15, 15, 25, 0.35) 20%,
+        rgba(20, 20, 30, 0.55) 40%,
+        rgba(15, 15, 20, 0.75) 60%,
+        rgba(10, 10, 15, 0.9) 75%,
+        #000 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+}
 header img {
     max-width: 1400px;
     width: 100%;
     height: auto;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 main {
@@ -79,7 +97,7 @@ main {
     font-size: 3rem;
     line-height: 1.4;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 0.3em;
